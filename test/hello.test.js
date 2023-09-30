@@ -1,35 +1,37 @@
-const hello = require("../src/hello");
+const hello = require("../src/hello")
 
 
-test("should say hello to given name", function () {
-  // setup
-  const name = "Estrella";
+test("should return Hello Estrella!", function() {
+    // setup
+    const name = "Estrella"
+    const expected = "Hello Estrella!"
+    
+    // execute
+    const result = hello(name)
 
-  // execute
-  const result = hello(name);
+    // validate
+    expect(result).toEqual(expected)
+})
 
-  // expectations
-  expect(result).toEqual("Hello Estrella!");
-});
+it("should return Hello World!", () => {
+    // setup
+    const expected = "Hello Estrella!"
+    
+    // execute
+    const result = hello()
 
-test("should say 'Hello World!' when no name is provided", function () {
-  // setup
-  const expected = "Hello World!";
+    // validate
+    expect(result).toEqual(expected)
+})
 
-  // execute
-  const result = hello();
+it("should return Hello Other Name!", () => {
+    // setup
+    const name = "Other Name"
+    const expected = "Hello Other Name!"
+    
+    // execute
+    const result = hello(name)
 
-  // expectations
-  expect(result).toEqual(expected);
-});
-
-test("should say hello to given name", function () {
-  // setup
-  const name = "Benja";
-
-  // execute
-  const result = hello(name);
-
-  // expectations
-  expect(result).toEqual("Hello Benja!");
-});
+    // validate
+    expect(result).toEqual(expected)
+})

@@ -111,12 +111,12 @@ test("should return '3m 20s' for 200 seconds", function () {
   const result = time(seconds);
 
   // expectation
-  expect(result).toEqual("3m");
+  expect(result).toEqual("3m 20s");
 });
 
 test("should return '1h 20m' for 80 minutes", function () {
   // setup
-  const seconds = 80 * 60;
+  const seconds = 80*60;
 
   // execute
   const result = time(seconds);

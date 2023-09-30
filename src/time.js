@@ -4,35 +4,46 @@ const WEEKS_IN_SECONDS = 7 * DAYS_IN_SECONDS;
 const YEARS_IN_SECONDS = 365 * DAYS_IN_SECONDS;
 
 function time(seconds) {
+  if (seconds === 0) return "0s"
+
+  let tiempo = ''
+
   if (seconds >= YEARS_IN_SECONDS) {
     const years = Math.floor(seconds / YEARS_IN_SECONDS);
     seconds %= YEARS_IN_SECONDS;
-    return years + "y";
+    tiempo += years + "y ";
   }
   if (seconds >= WEEKS_IN_SECONDS) {
     const weeks = Math.floor(seconds / WEEKS_IN_SECONDS);
     seconds %= WEEKS_IN_SECONDS;
-    return weeks + "w";
+    tiempo += weeks + "w ";
   }
+
   if (seconds >= DAYS_IN_SECONDS) {
     const days = Math.floor(seconds / DAYS_IN_SECONDS);
     seconds %= DAYS_IN_SECONDS;
-    return days + "d";
+    tiempo += days + "d ";
   }
   if (seconds >= HOURS_IN_SECONDS) {
     const hours = Math.floor(seconds / HOURS_IN_SECONDS);
     seconds %= HOURS_IN_SECONDS;
-    return hours + "h";
+    tiempo += hours + "h ";
   }
   if (seconds >= 60) {
     const minutes = Math.floor(seconds / 60);
     seconds %= 60;
-    return minutes + "m";
+    tiempo += minutes + "m ";
   }
-  return seconds + "s";
+  if (seconds > 0) {
+    
+    tiempo += seconds + "s ";
+  }
+
+  return tiempo.trim()
 }
 
 module.exports = time;
+
 
 
 
